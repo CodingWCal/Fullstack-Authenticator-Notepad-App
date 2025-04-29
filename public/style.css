@@ -1,0 +1,14 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  background-color: #c7e0f7; 
+}
+
+img{
+  height: 250px;
+}
+

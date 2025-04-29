@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <title>NotePad Tracker</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header text-center">
+      <h1><span class="fa fa-sticky-note"></span> Your Notes</h1><span class="fa fa-sticky-note"></span>
+      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+      <!-- Account Info -->
+      <div class="col-sm-6">
+        <div class="well">
+          <h3><span class="fa fa-user"></span> Account</h3>
+          <% if (user.local.email) { %>
+            <p>
+              <strong>id:</strong> <%= user._id %><br>
+              <strong>email:</strong> <%= user.local.email %><br>
+            </p>
+            <a href="/unlink/local" class="btn btn-default">Unlink Account</a>
+          <% } else { %>
+            <a href="/connect/local" class="btn btn-default">Connect Local Account</a>
+          <% } %>
+        </div>
+      </div>
+
+      <!-- Note List + Form -->
+      <ul>
+        <% notes.forEach(n => { %>
+          <li>
+            <%= n.text %>
+
+            <form method="POST" action="/notes?_method=DELETE" style="display:inline">
+              <input type="hidden" name="noteId" value="<%= n._id %>">
+              <button>Delete</button>
+            </form>
+
+          </li>
+        <% }) %>
+      </ul>
+    
+      <h3>Add a Note</h3>
+
+      <form method="POST" action="/notes">
+        <div class="form-group">
+          <label>Title</label>
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            placeholder="Note title"
+            required>
+        </div>
+        <div class="form-group">
+          <label>Content</label>
+          <textarea
+            class="form-control"
+            name="content"
+            placeholder="Write your note here…"
+            required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Note</button>
+      </form>
+
+    </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <title>My Notes</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Notes for <%= user.local.email %></h1>
+    <a href="/logout">Logout</a>
+
+    <!-- changed n yoinked profile ejs from workout fullstack app 1 -->
+    <h3>Your Notes</h3>
+
+    <ul class="list-group">
+      <% notes.forEach(n => { %>
+        <li class="list-group-item">
+          <strong><%= n.title %></strong><br>
+          <%= n.content %><br>
+
+          <form action="/notes/delete" method="POST" style="display:inline">
+            <input type="hidden" name="noteId" value="<%= n._id %>">
+            <button class="btn btn-xs btn-danger">Delete</button>
+          </form>
+
+        </li>
+      <% }) %>
+    </ul>
+
+    <h3>Add a New Note</h3>
+
+    <form action="/notes" method="POST">
+      <div class="form-group">
+        <label>Title</label>
+        <input name="title" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label>Content</label>
+        <textarea name="content" class="form-control" required></textarea>
+      </div>
+      <button class="btn btn-primary">Save Note</button>
+    </form>
+
+  </div>
+</body>
+</html>
