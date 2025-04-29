@@ -4,8 +4,9 @@ An authenticated note-taking app where you can add, view, and delete personal no
 
 **Link to project:** https://github.com/CodingWCal/fullstack-auth-app-2-notepad  
 ![Notepad App Screenshot](https://github.com/CodingWCal/Fullstack-Authenticator-Personal-Notepad-App/blob/main/notepad-home-screenshot.png)
+![Notepad App Screenshot](https://github.com/CodingWCal/Fullstack-Authenticator-Personal-Notepad-App/blob/main/note-tracker-screenshot.png)
 ![Notepad App Screenshot](https://github.com/CodingWCal/Fullstack-Authenticator-Personal-Notepad-App/blob/main/note-login-screenshot.png)  
-![Notepad App Screenshot](https://github.com/CodingWCal/Fullstack-Authenticator-Personal-Notepad-App/blob/main/note-tracker-screenshot.png)  
+
 *Screenshot of the home page, login, as well as notes list and “Add Note” form.*
 
 ## How It’s Made
